@@ -30,8 +30,12 @@
 
 #endif
 
-
+#ifdef HAVE_SPATIALITE_INIT
+#include <spatialite/sqlite3.h>
+#include <spatialite.h>
+#else
 #include <sqlite3.h>
+#endif
 
 #ifndef HAVE_SQLITE3_INT64
 typedef sqlite_int64 sqlite3_int64;

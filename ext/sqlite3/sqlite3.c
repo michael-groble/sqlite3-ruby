@@ -23,8 +23,10 @@ void Init_sqlite3_native()
    */
   cSqlite3Blob = rb_define_class_under(mSqlite3, "Blob", rb_cString);
 
+#ifdef HAVE_SPATIALITE_INIT
+  spatialite_init(0);
+#elif HAVE_SQLITE3_INITIALIZE
   /* Initialize the sqlite3 library */
-#ifdef HAVE_SQLITE3_INITIALIZE
   sqlite3_initialize();
 #endif
 
